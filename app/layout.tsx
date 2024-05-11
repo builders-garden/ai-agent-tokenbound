@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Raleway } from "next/font/google";
+import "@rainbow-me/rainbowkit/styles.css";
 import "./globals.css";
 import { ChainProviders } from "@/components/Providers";
+import { NextUIProvider } from "@nextui-org/react";
+import { Navbar } from "@/components/Navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,8 +20,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <ChainProviders>{children}</ChainProviders>
+      <body className={raleway.className}>
+        <ChainProviders>
+          <NextUIProvider>
+            <Navbar />
+            {children}
+          </NextUIProvider>
+        </ChainProviders>
       </body>
     </html>
   );
