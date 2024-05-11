@@ -1,11 +1,12 @@
-import { useAccount, WalletClient } from 'wagmi'
-import { TokenboundClient } from '@tokenbound/sdk'
- 
-const { address } = useAccount()
-const walletClient: WalletClient = createWalletClient({
-  chainId: goerli,
-  account: address,
-  transport: http(),
-})
- 
-const tokenboundClient = new TokenboundClient({ walletClient, chainId: 5 })
+
+// get tokenbound account
+export async function getAccount({
+  tokenId,
+}: {
+  tokenId: string
+}): Promise<{ account: string; txHash: string }> {
+
+  const collection = process.env.NFT_COLLECTION_ADDRESS
+  
+  return { account, txHash: account.txHash }
+}
