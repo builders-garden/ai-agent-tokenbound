@@ -7,6 +7,13 @@
   resolved "https://registry.yarnpkg.com/@adraffy/ens-normalize/-/ens-normalize-1.10.0.tgz#d2a39395c587e092d77cbbc80acf956a54f38bf7"
   integrity sha512-nA9XHtlAkYfJxY7bce8DcN7eKxWWCWkU+1GR9d+U6MbNpfwQp8TI7vqOsBsMcHoT4mBu2kypKoSKnghEzOOq5Q==
 
+"@airstack/airstack-react@^0.6.3":
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/@airstack/airstack-react/-/airstack-react-0.6.3.tgz#b40e8d9f6e9f43a137476a7bcb6231b5d73d6372"
+  integrity sha512-DrWWTZkGXPxL86HB0o65dFBqqIz4crWE9nENYneSoXCWUh7wQFi4MdzLia8b2eFzJUliAJTwxLjBT8zWr+kSqQ==
+  dependencies:
+    graphql "16.6.0"
+
 "@airstack/node@^0.0.7":
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/@airstack/node/-/node-0.0.7.tgz#0a5939a8b7d9fb149f15d8248e261dcede88507f"
@@ -2481,7 +2488,7 @@
     "@nextui-org/shared-utils" "2.0.5"
     "@nextui-org/system-rsc" "2.1.1"
 
-"@nextui-org/spinner@2.0.28":
+"@nextui-org/spinner@2.0.28", "@nextui-org/spinner@^2.0.28":
   version "2.0.28"
   resolved "https://registry.yarnpkg.com/@nextui-org/spinner/-/spinner-2.0.28.tgz#944b78e6cf425efa7d852bfcd79467d530afb103"
   integrity sha512-hlixGubd91KFSHIjwE0/vLmkSOtUwl56uFrsHBred2pqq8/1CAVlN7aINwoUotZRc5W0T7lyEQGvf88t0Dd3CA==
@@ -7003,6 +7010,11 @@ graphql-ws@^5.14.0:
   version "5.16.0"
   resolved "https://registry.yarnpkg.com/graphql-ws/-/graphql-ws-5.16.0.tgz#849efe02f384b4332109329be01d74c345842729"
   integrity sha512-Ju2RCU2dQMgSKtArPbEtsK5gNLnsQyTNIo/T7cZNp96niC1x0KdJNZV0TIoilceBPQwfb5itrGl8pkFeOUMl4A==
+
+graphql@16.6.0:
+  version "16.6.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-16.6.0.tgz#c2dcffa4649db149f6282af726c8c83f1c7c5fdb"
+  integrity sha512-KPIBPDlW7NxrbT/eh4qPXz5FiFdL5UbaA0XUNz2Rp3Z3hqBSkbj0GVjwFDztsWVauZUWsbKHgMg++sk8UX0bkw==
 
 graphql@16.7.1:
   version "16.7.1"

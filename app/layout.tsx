@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { VT323 } from "next/font/google";
 import "@rainbow-me/rainbowkit/styles.css";
 import "./globals.css";
-import { ChainProviders } from "@/components/Providers";
 import { NextUIProvider } from "@nextui-org/react";
 import { Navbar } from "@/components/Navbar";
+import { AirstackProvider } from "@airstack/airstack-react";
+import Providers from "@/components/Providers";
 
 const raleway = VT323({ subsets: ["latin"], weight: "400" });
 
@@ -18,15 +19,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log("API KEY", process.env.NEXT_PUBLIC_AIRSTACK_API_KEY);
   return (
     <html lang="en">
       <body className={raleway.className}>
-        <ChainProviders>
-          <NextUIProvider>
-            <Navbar />
-            {children}
-          </NextUIProvider>
-        </ChainProviders>
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );

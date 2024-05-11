@@ -1,13 +1,13 @@
-import { NftBalanceQueryQuery } from "./types";
+import { NftCollectionsQueryQuery, NftQueryQuery } from "./types";
 import { fetchQuery, init } from "@airstack/node";
 
-if (!process.env.AIRSTACK_API_KEY) {
-  throw new Error("AIRSTACK_API_KEY is missing");
+if (!process.env.NEXT_PUBLIC_AIRSTACK_API_KEY) {
+  throw new Error("NEXT_PUBLIC_AIRSTACK_API_KEY is missing");
 }
 
-init(process.env.AIRSTACK_API_KEY!);
+init(process.env.NEXT_PUBLIC_AIRSTACK_API_KEY!);
 
-const collectionsQuery = /* GraphQL */ `
+export const collectionsQuery = /* GraphQL */ `
   query NFTCollectionsQuery($owner: Identity!, $tokenAddresses: [Address!]) {
     TokenBalances(
       input: {
@@ -19,15 +19,17 @@ const collectionsQuery = /* GraphQL */ `
       }
     ) {
       TokenBalance {
-        id
-        amount
+        tokenNfts {
+          tokenId
+          tokenURI
+        }
       }
     }
   }
 `;
 
-interface QueryResponse {
-  data: NftBalanceQueryQuery | null;
+export interface CollectionsQueryResponse {
+  data: NftCollectionsQueryQuery | null;
   error: Error | null;
 }
 
@@ -39,10 +41,13 @@ export const fetchNFTCollectionsData = async (
   owner: string,
   tokenAddresses: string[]
 ) => {
-  const { data, error }: QueryResponse = await fetchQuery(collectionsQuery, {
-    owner,
-    tokenAddresses,
-  });
+  const { data, error }: CollectionsQueryResponse = await fetchQuery(
+    collectionsQuery,
+    {
+      owner,
+      tokenAddresses,
+    }
+  );
   if (
     error ||
     !data ||
@@ -55,16 +60,11 @@ export const fetchNFTCollectionsData = async (
   return data.TokenBalances.TokenBalance;
 };
 
-const nftQuery = /* GraphQL */ `
-  query NFTBalanceQuery(
-    $owner: Identity!
-    $tokenAddresses: [Address!]
-    $tokenId: String!
-  ) {
+export const nftQuery = /* GraphQL */ `
+  query NFTQuery($tokenAddresses: [Address!], $tokenId: String!) {
     TokenBalances(
       input: {
         filter: {
-          owner: { _eq: $owner }
           tokenAddress: { _in: $tokenAddresses }
           tokenId: { _eq: $tokenId }
         }
@@ -79,12 +79,21 @@ const nftQuery = /* GraphQL */ `
   }
 `;
 
+export interface NFTBalanceQueryResponse {
+  data: NftQueryQuery | null;
+  error: Error | null;
+}
+
+interface Error {
+  message: string;
+}
+
 export const fetchNFTData = async (
   owner: string,
   tokenAddresses: string[],
   tokenId: string
 ) => {
-  const { data, error }: QueryResponse = await fetchQuery(nftQuery, {
+  const { data, error }: NFTBalanceQueryResponse = await fetchQuery(nftQuery, {
     owner,
     tokenAddresses,
     tokenId,

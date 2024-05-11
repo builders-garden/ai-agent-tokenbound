@@ -5,6 +5,8 @@ import { WagmiProvider } from "wagmi";
 import { base } from "wagmi/chains";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ReactNode } from "react";
+import { AirstackProvider } from "@airstack/airstack-react";
+import { NextUIProvider } from "@nextui-org/react";
 
 const config = getDefaultConfig({
   appName: "ai-tokenbound-agent",
@@ -15,12 +17,16 @@ const config = getDefaultConfig({
 
 const queryClient = new QueryClient();
 
-export const ChainProviders = ({ children }: { children: ReactNode }) => {
+export default function Providers({ children }: { children: ReactNode }) {
   return (
-    <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider>{children}</RainbowKitProvider>
-      </QueryClientProvider>
-    </WagmiProvider>
+    <AirstackProvider apiKey={process.env.NEXT_PUBLIC_AIRSTACK_API_KEY!}>
+      <WagmiProvider config={config}>
+        <QueryClientProvider client={queryClient}>
+          <RainbowKitProvider>
+            <NextUIProvider>{children}</NextUIProvider>
+          </RainbowKitProvider>
+        </QueryClientProvider>
+      </WagmiProvider>
+    </AirstackProvider>
   );
-};
+}

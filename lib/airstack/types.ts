@@ -2181,13 +2181,12 @@ export type NftCollectionsQueryQueryVariables = Exact<{
 }>;
 
 
-export type NftCollectionsQueryQuery = { TokenBalances: { TokenBalance: Array<{ id: string, amount: string }> | null } | null };
+export type NftCollectionsQueryQuery = { TokenBalances: { TokenBalance: Array<{ tokenNfts: { tokenId: string, tokenURI: string | null } | null }> | null } | null };
 
-export type NftBalanceQueryQueryVariables = Exact<{
-  owner: Scalars['Identity']['input'];
+export type NftQueryQueryVariables = Exact<{
   tokenAddresses: InputMaybe<Array<Scalars['Address']['input']> | Scalars['Address']['input']>;
   tokenId: Scalars['String']['input'];
 }>;
 
 
-export type NftBalanceQueryQuery = { TokenBalances: { TokenBalance: Array<{ id: string, amount: string }> | null } | null };
+export type NftQueryQuery = { TokenBalances: { TokenBalance: Array<{ id: string, amount: string }> | null } | null };
