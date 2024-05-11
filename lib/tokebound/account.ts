@@ -53,4 +53,3 @@ export async function createAccount({
 
     return { account}
 }
-
