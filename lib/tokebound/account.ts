@@ -21,11 +21,6 @@ export async function getAccount({
   const isAccountDeployed = await tokenboundClient.checkAccountDeployment({
     accountAddress: tokenboundAccountAddress as `0x${string}`,
   });
-  console.log({
-    collection,
-    tokenboundAccountAddress,
-    isAccountDeployed,
-  });
   return {
     isDeployed: isAccountDeployed,
     tokenboundAccountAddress,
@@ -61,7 +56,6 @@ export async function createAccount({
     tokenId: tokenId!,
     chainId: base.id,
   };
-  console.log(params);
   const { account, txHash } = await tokenboundClient.createAccount(params);
 
   return account;

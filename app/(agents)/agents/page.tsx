@@ -1,7 +1,7 @@
 "use client";
 import { BasedPunkChat } from "@/components/BasedPunkChat";
 import { BasedPunksList } from "@/components/BasedPunksList";
-import { NFT } from "@/lib/nft-utils";
+import { NFT } from "@/lib/utils";
 import { Image } from "@nextui-org/react";
 import { useState } from "react";
 import { useAccount } from "wagmi";

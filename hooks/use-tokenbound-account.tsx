@@ -1,4 +1,4 @@
-import { NFT } from "@/lib/nft-utils";
+import { NFT } from "@/lib/utils";
 import { getAccount } from "@/lib/tokebound/account";
 import { TokenboundClient } from "@tokenbound/sdk";
 import { useCallback, useEffect, useState } from "react";

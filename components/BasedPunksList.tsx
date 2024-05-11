@@ -7,7 +7,7 @@ import { useAccount } from "wagmi";
 import { useEffect, useState } from "react";
 import { Spinner } from "@nextui-org/spinner";
 import { Button, Image } from "@nextui-org/react";
-import { NFT, prepareNFTData } from "@/lib/nft-utils";
+import { NFT, prepareNFTData } from "@/lib/utils";
 
 export const BasedPunksList = ({
   owner,

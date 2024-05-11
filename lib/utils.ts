@@ -12,3 +12,7 @@ export const prepareNFTData = async (tokenId: string, tokenUri: string) => {
     image: data.image.replace("ipfs://", "https://ipfs.io/ipfs/"),
   };
 };
+
+export const formatAddress = (address: string) => {
+  return `${address.slice(0, 4)}...${address.slice(-4)}`;
+};
