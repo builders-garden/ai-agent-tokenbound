@@ -9,7 +9,7 @@ const jersey = Jersey_15_Charted({ subsets: ["latin"], weight: "400" });
 export default function Home() {
   const { isConnected } = useAccount();
   return (
-    <main className="bg-white flex min-h-screen min-w-screen flex-col items-center justify-evenly p-24 gap-4">
+    <main className="bg-white flex max-h-screen max-w-screen flex-col items-center justify-evenly p-24 gap-4">
       <div className="flex flex-col gap-4 items-center">
         <div className="text-8xl text-primary">
           <div className={jersey.className}>Based Agents</div>

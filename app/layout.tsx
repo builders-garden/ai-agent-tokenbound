@@ -19,7 +19,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  console.log("API KEY", process.env.NEXT_PUBLIC_AIRSTACK_API_KEY);
   return (
     <html lang="en">
       <body className={raleway.className}>

@@ -53,7 +53,7 @@ export const BasedPunksList = ({
   }
 
   return (
-    <div className="grid grid-cols-1 gap-4 bg-primary rounded-3xl p-4 h-max">
+    <div className="flex flex-col gap-4 bg-primary rounded-3xl p-4">
       {nfts.map((nft) => (
         <div
           key={nft.id}
@@ -63,7 +63,7 @@ export const BasedPunksList = ({
           <Image
             src={nft.image}
             alt="nft-image"
-            className="h-24 rounded-full"
+            className="w-24 rounded-full"
           />
         </div>
       ))}
