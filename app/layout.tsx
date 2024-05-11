@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Raleway } from "next/font/google";
+import { VT323 } from "next/font/google";
 import "@rainbow-me/rainbowkit/styles.css";
 import "./globals.css";
 import { ChainProviders } from "@/components/Providers";
 import { NextUIProvider } from "@nextui-org/react";
 import { Navbar } from "@/components/Navbar";
 
-const raleway = Raleway({ subsets: ["latin"] });
+const raleway = VT323({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
