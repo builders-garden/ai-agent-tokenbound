@@ -11,7 +11,7 @@ export const useBrian = ({
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          secret: process.env.SECRET!,
+          secret: process.env.NEXT_PUBLIC_SECRET!,
         },
         body: JSON.stringify({
           prompt,
