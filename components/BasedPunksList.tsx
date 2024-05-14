@@ -40,6 +40,8 @@ export const BasedPunksList = ({
         setLoading(false);
       };
       prepareNfts();
+    } else {
+      console.log("No data");
     }
   }, [data]);
   if (loading) {
