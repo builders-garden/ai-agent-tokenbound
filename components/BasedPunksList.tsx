@@ -26,6 +26,7 @@ export const BasedPunksList = ({
   useEffect(() => {
     if (data) {
       const prepareNfts = async () => {
+        console.log(data.TokenBalances?.TokenBalance);
         const tokens = await Promise.all(
           data.TokenBalances?.TokenBalance!.map((token) =>
             prepareNFTData(
