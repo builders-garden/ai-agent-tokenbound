@@ -23,6 +23,7 @@ export const BasedPunksList = ({
     { owner, tokenAddresses: [BASED_PUNKS_COLLECTION_ADDRESS] },
     { cache: false }
   );
+  console.log(data);
   useEffect(() => {
     if (data) {
       const prepareNfts = async () => {
