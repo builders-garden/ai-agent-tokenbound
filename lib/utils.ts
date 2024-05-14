@@ -4,12 +4,14 @@ export interface NFT {
   image: string;
 }
 export const prepareNFTData = async (tokenId: string, tokenUri: string) => {
-  const res = await fetch(tokenUri.replace("ipfs://", "https://ipfs.io/ipfs/"));
+  const res = await fetch(
+    tokenUri.replace("ipfs://", "https://cf-ipfs.com/ipfs/")
+  );
   const data = await res.json();
   return {
     id: tokenId,
     name: data.name,
-    image: data.image.replace("ipfs://", "https://ipfs.io/ipfs/"),
+    image: data.image.replace("ipfs://", "https://cf-ipfs.com/ipfs/"),
   };
 };
 
