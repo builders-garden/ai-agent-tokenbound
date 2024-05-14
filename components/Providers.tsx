@@ -10,7 +10,7 @@ import { NextUIProvider } from "@nextui-org/react";
 
 const config = getDefaultConfig({
   appName: "ai-tokenbound-agent",
-  projectId: "YOUR_PROJECT_ID",
+  projectId: process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID!,
   chains: [base],
   ssr: true, // If your dApp uses server side rendering (SSR)
 });
